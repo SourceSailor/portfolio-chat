@@ -1,11 +1,9 @@
-import React from "react";
-
-const GradientOrb = ({ size, top, left, color, opacity }) => {
+const GradientOrb = ({ size, top, left, color, opacity, width }) => {
   return (
     <div
       style={{
         position: "absolute",
-        width: size,
+        width: width || size,
         height: size,
         top,
         left,

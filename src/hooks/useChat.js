@@ -27,8 +27,6 @@ const MAX_INPUT_LENGTH = 50000;
 export const useChat = () => {
   // Use State function that returns the Local Storage item holding the chat messages shape
   const [chatMessages, setChatMessages] = useState(() => {
-    // Try/Catch for better error handling
-    // If data is malformed the catch block will return an empty array
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
 
@@ -46,6 +44,7 @@ export const useChat = () => {
       return null;
     }
   });
+
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 

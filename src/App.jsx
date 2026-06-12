@@ -22,12 +22,14 @@ function App() {
       {radialGradientOrbs.map((orb) => (
         <GradientOrb
           size={orb.size}
+          width={orb.width}
           top={orb.top}
           left={orb.left}
           color={orb.color}
           opacity={orb.opacity}
         />
       ))}
+
       <ChatHeader clearChat={clearChat} chatMessages={chatMessages} />
 
       <ErrorBanner error={error} onClear={clearError} />

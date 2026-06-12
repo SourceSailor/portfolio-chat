@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import ChatInput from "./ChatInput";
 import ChatMessages from "./ChatMessages";
+import ChatIntro from "../ChatIntro";
 
 const ChatInterface = ({ chatMessages, sendMessageToAI, isLoading }) => {
   const textAreaRef = useRef(null);
@@ -19,14 +20,12 @@ const ChatInterface = ({ chatMessages, sendMessageToAI, isLoading }) => {
 
   return (
     <section
-      className={`max-w-5xl w-full mx-auto flex flex-col  h-full px-4 sm:px-6 md:px-10 gap-6 sm:gap-10 ${hasMessage ? "justify-between" : "justify-center"}`}
+      className={`max-w-3xl w-full mx-auto flex flex-col h-full px-4 sm:px-6 md:px-10 gap-6 sm:gap-10 ${hasMessage ? "justify-between" : "justify-center"}`}
     >
       {hasMessage ? (
         <ChatMessages chatMessages={chatMessages} isLoading={isLoading} />
       ) : (
-        <h1 className="text-3xl sm:text-4xl md:text-5xl text-brand-yellow font-black">
-          Ffind Your Answer.
-        </h1>
+        <ChatIntro />
       )}
 
       <ChatInput

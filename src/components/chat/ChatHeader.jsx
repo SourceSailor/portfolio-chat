@@ -7,6 +7,7 @@ const ChatHeader = ({ clearChat, chatMessages }) => {
         </p>
 
         <div className="flex gap-4">
+          <button onClick={clearChat}>Clear Chat</button>
           <button className="px-4 py-2 rounded-3xl bg-amber-100">Resume</button>
           <button>Reach out</button>
         </div>
