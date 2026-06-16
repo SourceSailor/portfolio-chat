@@ -1,4 +1,4 @@
-const ChatHeader = ({ clearChat, chatMessages }) => {
+const ChatHeader = ({ clearChat }) => {
   return (
     <header className="flex justify-center gap-2 py-4">
       <div className="flex flex-1 justify-between px-4 sm:px-6 md:px-10">

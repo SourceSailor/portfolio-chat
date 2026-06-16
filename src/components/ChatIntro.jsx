@@ -12,7 +12,7 @@ const ChatIntro = () => {
 
         <div className="h-[1px] w-9 bg-gray-500" />
       </div>
-      <h1 className="text-7xl tracking-wide imbue-font-400">
+      <h1 className="text-7xl tracking-wide font-imbue">
         Hi, I'm Kyle.
         <br />
         Ask me anything.
@@ -28,3 +28,43 @@ const ChatIntro = () => {
 };
 
 export default ChatIntro;
+
+const Watchlist = ({ tickers }) => {
+  const [prices, setPrices] = useState({});
+  const [selected, setSelected] = useState([]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      tickers.forEach((ticker) => {
+        fetchPrice(ticker).then((price) => {
+          setPrices({ ...prices, [ticker]: price });
+        });
+      });
+    }, 1000);
+  }, [tickers]);
+
+  const toggleSelect = (ticker) => {
+    if (selected.includes(ticker)) {
+      selected.splice(selected.indexOf(ticker), 1);
+      setSelected(selected);
+    } else {
+      setSelected([...selected, ticker]);
+    }
+  };
+
+  const totalSelected = selected.length;
+
+  return (
+    <div>
+      <p>
+        Watching {tickers.length} tickers · {totalSelected} selected
+      </p>
+      {tickers.map((ticker) => (
+        <div onClick={() => toggleSelect(ticker)}>
+          <span>{ticker}</span>
+          <span>{prices[ticker]}</span>
+        </div>
+      ))}
+    </div>
+  );
+};
