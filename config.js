@@ -1,10 +1,10 @@
 export const radialGradientOrbs = [
   {
     // Purple Orb - top left
-    size: "700px",
+    size: "500px",
     top: "-10%",
     left: "5%",
-    color: "rgba(130, 80, 255, 0.7)",
+    color: "rgba(130, 80, 255, 0.5)",
     opacity: "0.9",
   },
   {
@@ -13,38 +13,38 @@ export const radialGradientOrbs = [
     top: "20%",
     left: "100%",
     color: "rgba(255, 107, 0, 0.6)",
-    opacity: "0.6",
+    opacity: "0.4",
   },
   {
     // Purple Orb - middle
-    size: "400px",
-    width: "800px",
-    top: "68%",
+    size: "150px",
+    width: "600px",
+    top: "72%",
     left: "28%",
     color: "rgba(130, 80, 255, 0.6)",
     opacity: "0.5",
   },
   {
     // Orange Orb - middle
-    size: "500px",
+    size: "150px",
     width: "700px",
-    top: "68%",
-    left: "48%",
+    top: "72%",
+    left: "50%",
     color: "rgba(255, 107, 0, 0.6)",
     opacity: "0.6",
   },
   {
     // Redish Orb - middle
-    size: "400px",
+    size: "150px",
     width: "700px",
-    top: "68%",
-    left: "70%",
+    top: "72%",
+    left: "75%",
     color: "rgba(255, 60, 100, 0.6)",
     opacity: "0.5",
   },
   {
     // Blue Orb - Bottom right
-    size: "650px",
+    size: "250px",
     top: "100%",
     left: "70%",
     color: "rgba(0, 210, 200, 0.8)",

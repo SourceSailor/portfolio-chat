@@ -7,7 +7,8 @@
   --color-brand-yellow: #ffc107;
   --color-brand-yellow-hover: #ffd54f;
 
-  --font-imbue: "Imbue", serif;
+  --font-display: "Cormorant Infant", serif;
+  --font-mono-display: "SUSE Mono", monospace;
   --font-old-standard: "Old Standard TT", serif;
 }
 
@@ -33,24 +34,25 @@ body {
     @apply bg-brand-yellow text-neutral-900 hover:bg-brand-yellow-hover transition-colors;
   }
 
-  /* .imbue-font-400 {
-    font-family: "Imbue", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-  } */
+  .anything-color {
+    font-style: italic;
+    /* 1. Apply your gradient as a background */
+    background: linear-gradient(
+      135deg,
+      rgba(255, 107, 0, 0.8) 0%,
+      rgba(130, 80, 255, 0.8) 100%
+    );
 
-  .imbue-cormorant {
-    font-family: "Imbue", serif;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    font-style: normal;
-  }
+    /* 2. Clip the background so it only fills the text characters */
+    -webkit-background-clip: text;
+    background-clip: text;
 
-  .old-standard-tt-regular {
-    font-family: "Old Standard TT", serif;
-    font-weight: 400;
-    font-style: normal;
+    /* 3. Make the actual text color transparent so the gradient shines through */
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+
+    /* Optional: Standard text styling for headers */
+    font-weight: bold;
   }
 }
 

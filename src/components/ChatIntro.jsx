@@ -4,18 +4,18 @@ const ChatIntro = () => {
   return (
     <div className="flex flex-col gap-5 max-w-2xl text-center mx-auto">
       <div className="flex justify-center items-center gap-5 text-sm">
-        <div className="h-[1.5px] w-9 bg-gray-500" />
+        <div className="h-[0.9px] w-9 bg-gray-500" />
 
-        <p className="uppercase text-xs tracking-widest">
+        <p className="text-lg font-light tracking-widest font-mono-display">
           A portfolio, in conversation
         </p>
 
-        <div className="h-[1px] w-9 bg-gray-500" />
+        <div className="h-[0.9px] w-9 bg-gray-500" />
       </div>
-      <h1 className="text-7xl tracking-wide font-imbue">
+      <h1 className="text-7xl font-display font-semibold">
         Hi, I'm Kyle.
         <br />
-        Ask me anything.
+        Ask me <span className="anything-color">anything</span>.
       </h1>
 
       <p className="text-lg">
@@ -28,43 +28,3 @@ const ChatIntro = () => {
 };
 
 export default ChatIntro;
-
-const Watchlist = ({ tickers }) => {
-  const [prices, setPrices] = useState({});
-  const [selected, setSelected] = useState([]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      tickers.forEach((ticker) => {
-        fetchPrice(ticker).then((price) => {
-          setPrices({ ...prices, [ticker]: price });
-        });
-      });
-    }, 1000);
-  }, [tickers]);
-
-  const toggleSelect = (ticker) => {
-    if (selected.includes(ticker)) {
-      selected.splice(selected.indexOf(ticker), 1);
-      setSelected(selected);
-    } else {
-      setSelected([...selected, ticker]);
-    }
-  };
-
-  const totalSelected = selected.length;
-
-  return (
-    <div>
-      <p>
-        Watching {tickers.length} tickers · {totalSelected} selected
-      </p>
-      {tickers.map((ticker) => (
-        <div onClick={() => toggleSelect(ticker)}>
-          <span>{ticker}</span>
-          <span>{prices[ticker]}</span>
-        </div>
-      ))}
-    </div>
-  );
-};
