@@ -34,24 +34,40 @@ body {
     @apply bg-brand-yellow text-neutral-900 hover:bg-brand-yellow-hover transition-colors;
   }
 
+  .fill-text {
+    background-image: linear-gradient(to right, #8250ffcc 50%, #000000 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: background-position 0.4s ease;
+  }
+  .group:hover .fill-text {
+    background-position: 0 0;
+  }
+
+  .header-btn:hover ~ .header-btn-icon {
+    transform: translate(4px) rotate(12deg);
+  }
+  .header-btn-icon {
+    transition: transform 0.3s ease-out;
+  }
+
   .anything-color {
     font-style: italic;
-    /* 1. Apply your gradient as a background */
     background: linear-gradient(
       135deg,
       rgba(255, 107, 0, 0.8) 0%,
       rgba(130, 80, 255, 0.8) 100%
     );
 
-    /* 2. Clip the background so it only fills the text characters */
     -webkit-background-clip: text;
     background-clip: text;
 
-    /* 3. Make the actual text color transparent so the gradient shines through */
     -webkit-text-fill-color: transparent;
     color: transparent;
 
-    /* Optional: Standard text styling for headers */
     font-weight: bold;
   }
 }

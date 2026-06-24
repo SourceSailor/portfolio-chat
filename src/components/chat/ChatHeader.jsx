@@ -1,18 +1,46 @@
+import { FileUser, Eraser, Mail } from "lucide-react";
+
+const TEXTSIZE = "text-sm";
+const ICONSIZE = "w-4";
+
 const ChatHeader = ({ clearChat }) => {
   return (
-    <header className="flex justify-center gap-2 py-4">
+    <header className="flex justify-center gap-2 py-4 font-mono-display">
       <div className="flex flex-1 justify-between px-4 sm:px-6 md:px-10">
-        <p>
-          Kyle <span>/ portfolio in conversation</span>
-        </p>
+        <div className={`flex items-center ${TEXTSIZE}`}>
+          <p>Kyle Pickard |</p>
+          <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse mx-1" />
+          <p>Accepting new commits</p>
+        </div>
 
-        <div className="flex gap-4">
-          <button onClick={clearChat}>Clear Chat</button>
-          <button className="px-4 py-2 rounded-3xl bg-amber-100">Resume</button>
-          <button>Reach out</button>
+        <div className={`flex gap-6 ${TEXTSIZE}`}>
+          <ButtonAnimation
+            onClick={clearChat}
+            text="Clear chat"
+            icon={<Eraser className={`${ICONSIZE}`} />}
+          />
+          <ButtonAnimation
+            text="Resume"
+            icon={<FileUser className={`${ICONSIZE}`} />}
+          />
+          <ButtonAnimation
+            text="Reach out"
+            icon={<Mail className={`${ICONSIZE}`} />}
+          />
         </div>
       </div>
     </header>
+  );
+};
+
+const ButtonAnimation = ({ text, icon, onClick }) => {
+  return (
+    <div className="group flex gap-1">
+      <button onClick={onClick} className="fill-text header-btn">
+        {text}
+      </button>
+      {icon && <span className="header-btn-icon">{icon}</span>}
+    </div>
   );
 };
 
