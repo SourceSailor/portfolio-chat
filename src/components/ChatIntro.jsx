@@ -19,9 +19,9 @@ const ChatIntro = () => {
       </h1>
 
       <p className="text-lg">
-        This chat is trained on my work, projects, and how I think about
-        building product. Use it to get to know me faster than a résumé — then
-        reach out if we're a fit.
+        Go beyond the résumé. Chat with my personal AI, trained on my work, to
+        gain a deeper understanding of who I am, how I think, and what I can
+        bring to your team.
       </p>
     </div>
   );
