@@ -30,10 +30,6 @@ body {
     @apply border-white/10 bg-white/5 backdrop-blur-sm;
   }
 
-  .yellow-button {
-    @apply bg-brand-yellow text-neutral-900 hover:bg-brand-yellow-hover transition-colors;
-  }
-
   .fill-text {
     background-image: linear-gradient(to right, #8250ffcc 50%, #000000 50%);
     background-size: 200% 100%;
@@ -69,6 +65,59 @@ body {
     color: transparent;
 
     font-weight: bold;
+  }
+  .suggested-button {
+    position: relative;
+    display: inline-block;
+    padding: 8px 15px;
+    margin: 10px;
+    color: rgba(0, 0, 0, 0.75);
+    background-image: linear-gradient(to bottom right, #f7f6ef, #f5f4ef);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 40px;
+    box-shadow: 0px 2px 0px #d8d5ca;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+  }
+
+  .suggested-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0px 3px 0px #d8d5ca;
+    background-image: linear-gradient(
+      to bottom right,
+      #f5f4ef,
+      rgb(255, 254, 243)
+    );
+  }
+
+  .suggested-button:active {
+    transform: translateY(0px);
+    box-shadow: none;
+    background-image: linear-gradient(to bottom right, #e8e6de, #f0efe9);
+  }
+
+  .suggested-button:before,
+  .suggested-button:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+  }
+
+  .suggested-button:before {
+    top: -3px;
+    left: -3px;
+    border-radius: 40px;
+    border-top: 2px solid rgba(0, 0, 0, 0.08);
+    border-left: 2px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .suggested-button:after {
+    bottom: -3px;
+    right: -3px;
+    border-radius: 40px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+    border-right: 2px solid rgba(0, 0, 0, 0.08);
   }
 }
 

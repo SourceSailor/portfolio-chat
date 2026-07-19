@@ -59,3 +59,9 @@ export const radialGradientOrbs = [
     opacity: "0.6",
   },
 ];
+
+export const suggestedBtnText = [
+  "What is your tech stack?",
+  "Tell me about a project you are proud of.",
+  "What are you looking for in your next role?",
+];

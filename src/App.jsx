@@ -19,8 +19,9 @@ function App() {
 
   return (
     <div className="flex flex-col w-full h-screen relative overflow-hidden">
-      {radialGradientOrbs.map((orb) => (
+      {radialGradientOrbs.map((orb, i) => (
         <GradientOrb
+          key={i}
           size={orb.size}
           width={orb.width}
           top={orb.top}

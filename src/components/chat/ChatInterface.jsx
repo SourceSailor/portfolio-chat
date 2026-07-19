@@ -2,6 +2,8 @@ import { useRef } from "react";
 import ChatInput from "./ChatInput";
 import ChatMessages from "./ChatMessages";
 import ChatIntro from "../ChatIntro";
+import SuggestedButton from "../SuggestedButton";
+import { suggestedBtnText } from "../../../config";
 
 const ChatInterface = ({ chatMessages, sendMessageToAI, isLoading }) => {
   const textAreaRef = useRef(null);
@@ -33,6 +35,14 @@ const ChatInterface = ({ chatMessages, sendMessageToAI, isLoading }) => {
         onSubmit={submitMessage}
         isLoading={isLoading}
       />
+
+      {!hasMessage && (
+        <div>
+          {suggestedBtnText.map((btn, i) => (
+            <SuggestedButton key={i} btnText={btn} />
+          ))}
+        </div>
+      )}
     </section>
   );
 };
