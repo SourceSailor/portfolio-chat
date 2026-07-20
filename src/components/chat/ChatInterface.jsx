@@ -20,6 +20,10 @@ const ChatInterface = ({ chatMessages, sendMessageToAI, isLoading }) => {
     textAreaRef.current.value = "";
   };
 
+  const submitSuggestion = (message) => {
+    sendMessageToAI(message);
+  };
+
   return (
     <section
       className={`max-w-3xl w-full mx-auto flex flex-col h-full px-4 sm:px-6 md:px-10 gap-6 sm:gap-10 ${hasMessage ? "justify-between" : "justify-center"}`}
@@ -37,9 +41,13 @@ const ChatInterface = ({ chatMessages, sendMessageToAI, isLoading }) => {
       />
 
       {!hasMessage && (
-        <div>
-          {suggestedBtnText.map((btn, i) => (
-            <SuggestedButton key={i} btnText={btn} />
+        <div className="flex flex-wrap justify-center">
+          {suggestedBtnText.map((button, i) => (
+            <SuggestedButton
+              key={i}
+              btnText={button}
+              onClick={() => submitSuggestion(button)}
+            />
           ))}
         </div>
       )}

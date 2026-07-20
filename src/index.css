@@ -66,6 +66,8 @@ body {
 
     font-weight: bold;
   }
+
+  /* Suggested Buttons */
   .suggested-button {
     position: relative;
     display: inline-block;
