@@ -1,8 +1,16 @@
-const GradientOrb = ({ size, top, left, color, opacity, width }) => {
+const GradientOrb = ({
+  size,
+  top,
+  left,
+  color,
+  opacity,
+  width,
+  position = "absolute",
+}) => {
   return (
     <div
       style={{
-        position: "absolute",
+        position,
         width: width || size,
         height: size,
         top,

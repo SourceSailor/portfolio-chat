@@ -26,7 +26,7 @@ const ChatInterface = ({ chatMessages, sendMessageToAI, isLoading }) => {
 
   return (
     <section
-      className={`max-w-3xl w-full mx-auto flex flex-col h-full px-4 sm:px-6 md:px-10 gap-6 sm:gap-10 ${hasMessage ? "justify-between" : "justify-center"}`}
+      className={`max-w-3xl w-full mx-auto flex flex-col h-full px-4 sm:px-6 md:px-10 gap-6 sm:gap-10 relative ${hasMessage ? "justify-between" : "justify-center"}`}
     >
       {hasMessage ? (
         <ChatMessages chatMessages={chatMessages} isLoading={isLoading} />

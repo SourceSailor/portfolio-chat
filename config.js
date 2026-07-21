@@ -16,33 +16,6 @@ export const radialGradientOrbs = [
     opacity: "0.4",
   },
   {
-    // Purple Orb - middle
-    size: "150px",
-    width: "600px",
-    top: "72%",
-    left: "28%",
-    color: "rgba(130, 80, 255, 0.6)",
-    opacity: "0.5",
-  },
-  {
-    // Orange Orb - middle
-    size: "150px",
-    width: "700px",
-    top: "72%",
-    left: "50%",
-    color: "rgba(255, 107, 0, 0.6)",
-    opacity: "0.6",
-  },
-  {
-    // Redish Orb - middle
-    size: "150px",
-    width: "700px",
-    top: "72%",
-    left: "75%",
-    color: "rgba(255, 60, 100, 0.6)",
-    opacity: "0.5",
-  },
-  {
     // Blue Orb - Bottom right
     size: "250px",
     top: "100%",
@@ -64,4 +37,34 @@ export const suggestedBtnText = [
   "What is your tech stack?",
   "Tell me about a project you are proud of.",
   "What are you looking for in your next role?",
+];
+
+export const inputOrbs = [
+  {
+    // Purple Orb - middle
+    size: "150px",
+    width: "90%",
+    top: "60%",
+    left: "22%",
+    color: "rgba(130, 80, 255, 0.6)",
+    opacity: "0.5",
+  },
+  {
+    // Orange Orb - middle
+    size: "150px",
+    width: "70%",
+    top: "60%",
+    left: "52%",
+    color: "rgba(255, 107, 0, 0.6)",
+    opacity: "0.6",
+  },
+  {
+    // Redish Orb - middle
+    size: "150px",
+    width: "90%",
+    top: "60%",
+    left: "85%",
+    color: "rgba(255, 60, 100, 0.6)",
+    opacity: "0.5",
+  },
 ];
