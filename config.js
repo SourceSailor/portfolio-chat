@@ -68,3 +68,32 @@ export const inputOrbs = [
     opacity: "0.5",
   },
 ];
+export const activeInputOrbs = [
+  {
+    // Purple Orb - middle
+    size: "150px",
+    width: "90%",
+    top: "60%",
+    left: "22%",
+    color: "rgba(130, 80, 255, 0.9)",
+    opacity: "0.5",
+  },
+  {
+    // Orange Orb - middle
+    size: "150px",
+    width: "70%",
+    top: "60%",
+    left: "52%",
+    color: "rgba(255, 107, 0, 0.9)",
+    opacity: "0.6",
+  },
+  {
+    // Redish Orb - middle
+    size: "150px",
+    width: "90%",
+    top: "60%",
+    left: "85%",
+    color: "rgba(255, 60, 100, 0.9)",
+    opacity: "0.5",
+  },
+];
