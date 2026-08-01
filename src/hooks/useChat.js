@@ -4,19 +4,6 @@ import { sendMessage } from "../services/openaiAPI";
 import { mapApiError } from "../utils/errors";
 import { createTimeoutSignal } from "../utils/apiTimeout";
 
-/**
- * Manages chat state, API responses and local storage chat message persistence
- *
- * @returns {{
- * chatMessages: {id: string, role: string, content: string}[]
- * error: {title: string, desc: string} | null
- * isLoading: boolean
- * clearError: () => void
- * clearChat: () => void
- * sendMessageToAI: (inputMessage: string) => Promise
- * }}
- */
-
 // Keys for Local Storage
 const STORAGE_KEY = "chat_messages";
 const STORAGE_RESPONSE_ID = "response_id";
@@ -25,131 +12,37 @@ const STORAGE_RESPONSE_ID = "response_id";
 const MAX_INPUT_LENGTH = 50000;
 
 export const useChat = () => {
-  // Use State function that returns the Local Storage item holding the chat messages shape
-  const [chatMessages, setChatMessages] = useState(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-
-      return stored ? JSON.parse(stored) : [];
-    } catch {
-      return [];
-    }
-  });
-
-  const [previousResponseId, setPreviousResponseId] = useState(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_RESPONSE_ID);
-      return stored ? JSON.parse(stored) : null;
-    } catch {
-      return null;
-    }
-  });
-
+  const [chatMessages, setChatMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const clearError = () => setError(null);
 
-  // useEffect which sets the chat messages state to Local Storage once streaming is complete
-  useEffect(() => {
-    if (isLoading) return; // skip mid-stream writes
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(chatMessages));
-      console.log("CHAT MESSAGES: ", chatMessages);
-    } catch {
-      // fail silently
-    }
-  }, [chatMessages, isLoading]);
-
-  // useEffect which sets the API's Response's ID to Local Storage
-  useEffect(() => {
-    localStorage.setItem(
-      STORAGE_RESPONSE_ID,
-      JSON.stringify(previousResponseId),
-    );
-    console.log("RESPONSE ID: ", previousResponseId);
-  }, [previousResponseId]);
-
   const sendMessageToAI = async (inputMessage) => {
-    const trimmed = inputMessage.trim();
-    // Return silently if input message is empty or isLoading is true
-    if (!trimmed || isLoading) return;
-
-    if (trimmed.length > MAX_INPUT_LENGTH) {
-      setError({
-        title: "Message too long",
-        desc: `Keep it under ${MAX_INPUT_LENGTH} characters.`,
-      });
-      return;
-    }
-
-    // Optimistic user message shape
-    // Set ChatMessages state before API call so that UI shows the user message immediately
-    const userMessage = {
-      id: crypto.randomUUID(),
-      role: "user",
-      content: trimmed,
-    };
-    const assistantId = crypto.randomUUID();
-
-    setChatMessages((prev) => [...prev, userMessage]);
-
-    const timeoutSignal = createTimeoutSignal();
-    setIsLoading(true);
-    setError(null);
+    const trimmedMessage = inputMessage.trim();
+    if (trimmedMessage.length <= 0) return;
+    const userMessageId = crypto.randomUUID();
 
     try {
-      // Streaming Response
-      for await (const event of sendMessage(trimmed, {
-        previousResponseId,
-        signal: timeoutSignal,
-      })) {
-        if (event.type === "delta") {
-          setChatMessages((prev) => {
-            const last = prev[prev.length - 1];
-            // First delta event append the new assistant message defined above
-            if (last?.id !== assistantId) {
-              return [
-                ...prev,
-                { id: assistantId, role: "assistant", content: event.text },
-              ];
-            }
-            // Return the rest of the delta text events
-            return prev.map((m) =>
-              m.id === assistantId
-                ? { ...m, content: m.content + event.text }
-                : m,
-            );
-          });
-        } else if (event.type === "done") {
-          setPreviousResponseId(event.responseId);
-        }
-      }
+      setIsLoading(true);
+
+      // Display optimistic user message
+      setChatMessages((prev) => [
+        ...prev,
+        { id: userMessageId, role: "user", content: inputMessage },
+      ]);
+
+      const response = await sendMessage(trimmedMessage);
+      console.log("AI RESPONSE: ", response);
+
+      setChatMessages((prev) => [
+        ...prev,
+        { id: response?.id, role: "assistant", content: response?.output_text },
+      ]);
     } catch (err) {
-      // Open AI's SDK returns APIUserAbortError when throwing an error
-      // If an abort/timeout we exit early and set the error title and desc to update the UI
-      if (err instanceof APIUserAbortError) {
-        if (timeoutSignal.aborted) {
-          setError({
-            title: "Request timed out",
-            desc: "The assistant took too long to respond. Please try again.",
-          });
-        }
-        // user-initiated cancel
-        return;
-      }
-
-      // Custom error function that returns a custom object - {title, description} - dependent on error type/status
-      const mappedError = mapApiError(err);
-
-      // user cancelled — no error to show
-      if (!mappedError) return;
-
-      setChatMessages((prev) =>
-        prev.map((m) => (m.id === assistantId ? { ...m, error: true } : m)),
-      );
-
-      setError(mappedError);
+      console.log("Send Message to AI Error: ", { err });
+      setChatMessages((prev) => prev.filter((msg) => msg.id !== userMessageId));
+      setError(mapApiError(err));
     } finally {
       setIsLoading(false);
     }
@@ -157,7 +50,6 @@ export const useChat = () => {
 
   const clearChat = () => {
     setChatMessages([]);
-    setPreviousResponseId(null);
     setError(null);
   };
 

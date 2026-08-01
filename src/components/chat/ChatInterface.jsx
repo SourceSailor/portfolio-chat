@@ -38,6 +38,7 @@ const ChatInterface = ({ chatMessages, sendMessageToAI, isLoading }) => {
         textAreaRef={textAreaRef}
         onSubmit={submitMessage}
         isLoading={isLoading}
+        hasMessage={hasMessage}
       />
 
       {!hasMessage && (

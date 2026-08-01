@@ -2,7 +2,7 @@ import { ArrowUp } from "lucide-react";
 import { inputOrbs, activeInputOrbs } from "../../../config";
 import GradientOrb from "../GradientOrb";
 
-const ChatInput = ({ textAreaRef, onSubmit, isLoading }) => {
+const ChatInput = ({ textAreaRef, onSubmit, isLoading, hasMessage }) => {
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
@@ -13,35 +13,37 @@ const ChatInput = ({ textAreaRef, onSubmit, isLoading }) => {
   return (
     <div className="group">
       {/* Resting orbs: visible by default, fade out on hover */}
-      <div className="transition-opacity duration-300 group-hover:opacity-0">
-        {inputOrbs.map((orb, i) => (
-          <GradientOrb
-            key={i}
-            size={orb.size}
-            width={orb.width}
-            top={orb.top}
-            left={orb.left}
-            color={orb.color}
-            opacity={orb.opacity}
-          />
-        ))}
-      </div>
-
+      {!hasMessage && (
+        <div className="transition-opacity duration-300 group-hover:opacity-0">
+          {inputOrbs.map((orb, i) => (
+            <GradientOrb
+              key={i}
+              size={orb.size}
+              width={orb.width}
+              top={orb.top}
+              left={orb.left}
+              color={orb.color}
+              opacity={orb.opacity}
+            />
+          ))}
+        </div>
+      )}
       {/* Active orbs: hidden by default, fade in on hover */}
-      <div className="opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        {activeInputOrbs.map((orb, i) => (
-          <GradientOrb
-            key={i}
-            size={orb.size}
-            width={orb.width}
-            top={orb.top}
-            left={orb.left}
-            color={orb.color}
-            opacity={orb.opacity}
-          />
-        ))}
-      </div>
-
+      {!hasMessage && (
+        <div className="opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          {activeInputOrbs.map((orb, i) => (
+            <GradientOrb
+              key={i}
+              size={orb.size}
+              width={orb.width}
+              top={orb.top}
+              left={orb.left}
+              color={orb.color}
+              opacity={orb.opacity}
+            />
+          ))}
+        </div>
+      )}
       <form className="flex pb-5" onSubmit={onSubmit} aria-label="Send message">
         <div className="flex-1 flex justify-between gap-2 rounded-2xl p-2 backdrop-blur-xl bg-white/60 border border-gray-300 backdrop-filter-md backdrop-brightness-100 drop-shadow-sm px-4 py-3">
           <textarea
