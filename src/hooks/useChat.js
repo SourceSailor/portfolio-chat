@@ -42,6 +42,7 @@ export const useChat = () => {
     } catch (err) {
       console.log("Send Message to AI Error: ", { err });
       setChatMessages((prev) => prev.filter((msg) => msg.id !== userMessageId));
+
       setError(mapApiError(err));
     } finally {
       setIsLoading(false);
