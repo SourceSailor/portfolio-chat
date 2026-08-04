@@ -121,6 +121,12 @@ body {
     border-bottom: 2px solid rgba(0, 0, 0, 0.08);
     border-right: 2px solid rgba(0, 0, 0, 0.08);
   }
+
+  @keyframes inputAnimation {
+    0% {
+      justify-content: space-between;
+    }
+  }
 }
 
 .prose ul > li::marker,
