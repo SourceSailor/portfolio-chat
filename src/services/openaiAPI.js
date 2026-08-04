@@ -9,7 +9,7 @@ export async function sendMessage(message, { signal } = {}) {
   try {
     const stream = await client.responses.create(
       {
-        model: "gpt-4os",
+        model: "gpt-4o",
         input: [{ role: "user", content: message }],
         instructions: "Talk like a pirate",
       },

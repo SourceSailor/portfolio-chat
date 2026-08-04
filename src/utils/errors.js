@@ -14,6 +14,12 @@ export const mapApiError = (err) => {
       desc: "The request took too long or was cancelled. Please try again.",
     };
   }
+  if (status === 400) {
+    return {
+      title: "Bad Request",
+      desc: "The server cannot process your request",
+    };
+  }
   if (status === 401) {
     return {
       title: "Authentication error",
