@@ -28,6 +28,7 @@ const ChatInput = ({ textAreaRef, onSubmit, isLoading, hasMessage }) => {
           ))}
         </div>
       )}
+
       {/* Active orbs: hidden by default, fade in on hover */}
       {!hasMessage && (
         <div className="opacity-0 transition-opacity duration-300 group-hover:opacity-100">
