@@ -2,6 +2,8 @@ import { ArrowUp } from "lucide-react";
 import { inputOrbs, activeInputOrbs } from "../../../config";
 import GradientOrb from "../GradientOrb";
 
+import { motion } from "motion/react";
+
 const ChatInput = ({ textAreaRef, onSubmit, isLoading, hasMessage }) => {
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -56,13 +58,25 @@ const ChatInput = ({ textAreaRef, onSubmit, isLoading, hasMessage }) => {
             onKeyDown={handleKeyDown}
             className="flex-1 field-sizing-content bg-transparent px-3 py-2.5 text-[15px] text-neutral-700 placeholder:text-neutral-500 focus:outline-none"
           />
-          <button
+          <motion.button
+            initial={{
+              scale: 1,
+              background:
+                "linear-gradient(45deg, #ff6a00d7 0%, #ff6a00d7 100%)",
+            }}
+            whileHover={{
+              scale: 1.1,
+              background:
+                "linear-gradient(135deg, #ff6b00cc 0%, #8250ffcc 100%)",
+            }}
+            transition={{ duration: 0.3, delay: 0.1, ease: "easeInOut" }}
             type="submit"
+            id="input-button"
             className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#ff6a00d7] ${isLoading && "cursor-not-allowed"}`}
             disabled={isLoading}
           >
             <ArrowUp className="text-neutral-100" size={"20px"} />
-          </button>
+          </motion.button>
         </div>
       </form>
     </div>

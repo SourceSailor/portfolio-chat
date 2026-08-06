@@ -10,7 +10,6 @@ import { radialGradientOrbs } from "../config";
 function App() {
   const {
     chatMessages,
-    setChatMessages,
     error,
     clearError,
     sendMessageToAI,
@@ -41,7 +40,6 @@ function App() {
           chatMessages={chatMessages}
           sendMessageToAI={sendMessageToAI}
           isLoading={isLoading}
-          setChatMessages={setChatMessages}
         />
       </main>
     </div>

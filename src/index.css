@@ -122,6 +122,10 @@ body {
     border-right: 2px solid rgba(0, 0, 0, 0.08);
   }
 
+  #input-button:hover {
+    background-color: purple;
+  }
+
   @keyframes inputAnimation {
     0% {
       justify-content: space-between;
