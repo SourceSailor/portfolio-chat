@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useRef } from "react";
 import { APIUserAbortError } from "openai";
 import { sendMessage } from "../services/openaiAPI";
 import { mapApiError } from "../utils/errors";
@@ -16,12 +16,16 @@ export const useChat = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const abortRef = useRef();
+
   const clearError = () => setError(null);
 
   const sendMessageToAI = async (inputMessage) => {
     const trimmedMessage = inputMessage.trim();
     if (trimmedMessage.length <= 0) return;
     const userMessageId = crypto.randomUUID();
+
+    const controller = new AbortController();
 
     try {
       setIsLoading(true);
@@ -32,7 +36,7 @@ export const useChat = () => {
         { id: userMessageId, role: "user", content: inputMessage },
       ]);
 
-      const response = await sendMessage(trimmedMessage);
+      const response = await sendMessage(trimmedMessage, controller);
       console.log("AI RESPONSE: ", response);
 
       setChatMessages((prev) => [
