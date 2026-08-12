@@ -4,10 +4,6 @@ import { sendMessage } from "../services/openaiAPI";
 import { mapApiError } from "../utils/errors";
 import { createTimeoutSignal } from "../utils/apiTimeout";
 
-// Keys for Local Storage
-const STORAGE_KEY = "chat_messages";
-const STORAGE_RESPONSE_ID = "response_id";
-
 // Maximum length for chat messages.trim()
 const MAX_INPUT_LENGTH = 50000;
 
