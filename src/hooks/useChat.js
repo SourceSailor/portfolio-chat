@@ -11,6 +11,7 @@ export const useChat = () => {
   const [chatMessages, setChatMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [prevResponseId, setPrevResponseId] = useState(null);
 
   const abortRef = useRef();
 
@@ -32,12 +33,24 @@ export const useChat = () => {
         { id: userMessageId, role: "user", content: inputMessage },
       ]);
 
-      const response = await sendMessage(trimmedMessage, controller);
+      const response = await sendMessage(
+        trimmedMessage,
+        prevResponseId,
+        controller,
+      );
       console.log("AI RESPONSE: ", response);
+
+      if (response.id) {
+        setPrevResponseId(response.id);
+      }
 
       setChatMessages((prev) => [
         ...prev,
-        { id: response?.id, role: "assistant", content: response?.output_text },
+        {
+          id: response?.id,
+          role: "assistant",
+          content: response?.output_text,
+        },
       ]);
     } catch (err) {
       console.log("Send Message to AI Error: ", { err });

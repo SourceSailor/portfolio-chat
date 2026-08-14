@@ -5,13 +5,15 @@ const client = new OpenAI({
   dangerouslyAllowBrowser: true,
 });
 
-export async function sendMessage(message, { signal } = {}) {
+export async function sendMessage(message, prevResponseId, { signal } = {}) {
   try {
     const stream = await client.responses.create(
       {
         model: "gpt-4o",
         input: [{ role: "user", content: message }],
         instructions: "Talk like a pirate",
+        store: true,
+        previous_response_id: prevResponseId,
       },
       { signal },
     );
