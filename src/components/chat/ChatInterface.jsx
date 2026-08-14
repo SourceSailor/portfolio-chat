@@ -34,6 +34,7 @@ const ChatInterface = ({ chatMessages, sendMessageToAI, isLoading }) => {
           </motion.div>
         )}
       </AnimatePresence>
+
       {hasMessage && (
         <ChatMessages chatMessages={chatMessages} isLoading={isLoading} />
       )}
