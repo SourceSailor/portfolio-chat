@@ -6,8 +6,8 @@ const ICONSIZE = "w-4";
 const ChatHeader = ({ clearChat }) => {
   return (
     <header className="flex justify-center gap-2 py-4 font-mono-display">
-      <div className="flex flex-1 justify-between px-4 sm:px-6 md:px-10">
-        <div className={`flex items-center ${TEXTSIZE}`}>
+      <div className="flex flex-1 justify-end md:justify-between px-4 sm:px-6 md:px-10">
+        <div className={`hidden md:flex items-center ${TEXTSIZE}`}>
           <p>Kyle Pickard |</p>
           <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse mx-1" />
           <p>Accepting new commits</p>
