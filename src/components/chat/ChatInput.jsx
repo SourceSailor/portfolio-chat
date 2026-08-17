@@ -69,7 +69,7 @@ const ChatInput = ({ textAreaRef, onSubmit, isLoading, hasMessage }) => {
               background:
                 "linear-gradient(135deg, #ff6b00cc 0%, #8250ffcc 100%)",
             }}
-            transition={{ duration: 0.3, delay: 0.1, ease: "easeInOut" }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
             type="submit"
             id="input-button"
             className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#ff6a00d7] ${isLoading && "cursor-not-allowed"}`}
