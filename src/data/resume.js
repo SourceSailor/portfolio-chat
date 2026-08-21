@@ -182,6 +182,4 @@ export const resume = {
       "UI/UX Design",
     ],
   },
-
-  education: [],
 };
