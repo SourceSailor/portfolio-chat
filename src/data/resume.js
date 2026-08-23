@@ -168,7 +168,13 @@ export const resume = {
       "MongoDB",
       "Git",
     ],
-    ai: ["OpenAI API", "Claude API", "LLM Integration", "SSE Streaming"],
+    ai: [
+      "OpenAI API",
+      "Claude API",
+      "LLM Integration",
+      "SSE Streaming",
+      "Vector Stores",
+    ],
     platforms: [
       "AWS Amplify",
       "Clerk",
