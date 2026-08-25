@@ -156,7 +156,7 @@ export const resume = {
   skills: {
     core: [
       "React",
-      "JavaScript (ES6+)",
+      "JavaScript",
       "REST APIs",
       "Node.js",
       "Express",
