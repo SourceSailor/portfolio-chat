@@ -163,6 +163,7 @@ export const resume = {
       "HTML",
       "CSS",
       "Tailwind CSS",
+      "Bootstrap",
       "Vite",
       "React Query",
       "MongoDB",
