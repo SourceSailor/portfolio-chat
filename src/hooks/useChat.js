@@ -13,8 +13,6 @@ export const useChat = () => {
   const [error, setError] = useState(null);
   const [prevResponseId, setPrevResponseId] = useState(null);
 
-  const abortRef = useRef();
-
   const clearError = () => setError(null);
 
   const sendMessageToAI = async (inputMessage) => {
