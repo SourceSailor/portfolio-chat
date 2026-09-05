@@ -1,8 +1,6 @@
-import { useState, useRef } from "react";
-// import { APIUserAbortError } from "openai";
+import { useState } from "react";
 import { sendMessage } from "../services/openaiAPI";
 import { mapApiError } from "../utils/errors";
-// import { createTimeoutSignal } from "../utils/apiTimeout";
 
 // Maximum length for chat messages.trim()
 const MAX_INPUT_LENGTH = 50000;
