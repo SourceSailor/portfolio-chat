@@ -67,10 +67,10 @@ export const resume = {
       role: "Founding Frontend Engineer",
       timeline: "2024 – Present",
       description:
-        "Architected the core application layer for an AI-powered fintech platform serving multiple enterprise banking clients, from chat infrastructure and document handling to authentication and billing — the foundation seven separate production products were built on top of.",
+        "Consolidated 7 separate AI applications into a single cohesive platform used by enterprise banking clients - transforming how users accessed our tools and delivering a seamless experience under one application. ",
       tools: [
         "React",
-        "OpenAI Assistants API",
+        "OpenAI Responses API",
         "Vector Stores",
         "AWS Amplify",
         "Clerk",
@@ -78,11 +78,11 @@ export const resume = {
         "Node.js",
       ],
       challenge:
-        "A synchronous file-processing pipeline was creating a major wait-time bottleneck for end users, and every new AI-powered feature was being built as a one-off, duplicating chat/streaming logic each time.",
+        "Consolidate 7 independent AI features into a single application that feels cohesive and effortless — not like 7 separate tools grafted together. Users needed to seamlessly navigate between features and maintain separate chat histories per feature without context loss or friction. This required rethinking the entire user experience from navigation architecture to visual language to interaction patterns.",
       solution:
-        "Rearchitected the file-processing pipeline to remove the synchronous bottleneck, cutting wait times by up to 80%. Designed a generic, reusable chat hook architecture (a shared base hook composed into feature-specific hooks) so new AI features could be built on shared, tested infrastructure instead of duplicated logic. Set up the Git/CI/CD workflows and Clerk-based subscription billing from scratch.",
+        "Architected a fully custom component library to unify all 7 individual features into one cohesively designed platform — leveraging Tailwind CSS and custom animations for a polished, consistent visual experience. Developed a dynamic sidebar navigation system powered by React Router, allowing users to seamlessly switch between features while maintaining individual, persistent chat and report histories via API and state management. Integrated Clerk for authentication and subscription management, which unlocked feature-gating based on user tier and provided the billing infrastructure the platform needed.",
       impact:
-        "Now powers 7 production applications deployed across dozens of banks, built and maintained solo — architecture, testing, deployment, monitoring, and client demos, with zero handoff.",
+        "The unified platform became eAI's flagship product. It now powers enterprise banking workflows across multiple enterprise banking clients and has generated $160K+ in closed revenue, with adoption continuing to grow.",
     },
   ],
 
