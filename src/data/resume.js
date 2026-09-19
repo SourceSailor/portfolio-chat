@@ -29,14 +29,19 @@ export const resume = {
     },
     {
       company: "Kreativz",
-      role: "Web Developer / CMS Specialist",
+      role: "Web Developer / Digital Media Specialist",
       period: "2019 – 2024",
       description:
-        "Full-service branding agency. Designed, built, and launched 20+ websites developed across Wordpress, Webflow, and Hubspot for nonprofit and commercial clients  — sites still live years after delivery, serving thousands of monthly visitors.",
+        "Full-service branding agency, where kyle, along side a team member, owned the technical and creative development of client work end-to-end — strategy through launch — across WordPress, Webflow, HubSpot, and other various CMS platforms alongside the agency's creative production.",
       highlights: [
-        "Managed full project lifecycle — strategy, wireframes, design, build, launch, analytic tracking, and maintenance — across WordPress, Webflow, and HubSpot.",
-        "Optimized site performance and SEO through image optimization, plugin audits, and on-page SEO best practices — driving sustained organic traffic across multi-year horizons.",
-        "Shipped the full creative stack across every CMS build — photography, video editing, motion graphics, and copy.",
+        "Owned full project lifecycle on 20+ client sites — wireframes, design mock-ups, full site builds, site launches, analytic tracking and reporting, and ongoing maintenance — sites still live and serving thousands of monthly visitors years after delivery.",
+        "Optimized site performance and SEO across the client portfolio through image optimization, plugin audits, and on-page SEO — sustaining organic traffic growth over multi-year horizons.",
+        "Provided full creative suite for all projects, including in-house photography, videography, video editing, and animations - bringing client websites to life with real products and real storytelling.",
+      ],
+      impact: [
+        "Contributed to $8M+ raised over ~7 years for Camp Okizu (a camp for children with childhood cancer) through an annual fundraising film — filmed on-site, edited, and produced solo, plus gala photography and event recap — self-reported by client.",
+        "Rebuilt the Novato Chamber of Commerce website end-to-end (event registration, SEO), then drove ~84.5% month-over-month growth in site views during the Art & Wine Festival campaign — 4,816 landing-page views on $1,548 ad spend.",
+        "Diagnosed that Marin County Bicycle Coalition's requested update wouldn't solve the underlying problem, and made the case for a full rebuild instead. Client reported the new design and navigation flow increased website views and user retention.",
       ],
     },
   ],
@@ -83,6 +88,26 @@ export const resume = {
         "Architected a fully custom component library to unify all 7 individual features into one cohesively designed platform — leveraging Tailwind CSS and custom animations for a polished, consistent visual experience. Developed a dynamic sidebar navigation system powered by React Router, allowing users to seamlessly switch between features while maintaining individual, persistent chat and report histories via API and state management. Integrated Clerk for authentication and subscription management, which unlocked feature-gating based on user tier and provided the billing infrastructure the platform needed.",
       impact:
         "The unified platform became eAI's flagship product. It now powers enterprise banking workflows across multiple enterprise banking clients and has generated $160K+ in closed revenue, with adoption continuing to grow.",
+    },
+    {
+      title: "Software Vulnerability Report — Security/Compliance Tool",
+      role: "Sole Frontend Engineer",
+      timeline: "2025 – Present",
+      description:
+        "Built a security compliance reporting tool for enterprise banking clients on the Carter Bank Intelligence platform. Ingests three raw export formats — EOL/EOS scans, Active Directory user exports, and computer logon summaries — and generates categorized, actionable vulnerability reports.",
+      tools: [
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "AWS Amplify",
+        "FastAPI (backend)",
+      ],
+      challenge:
+        "Bank IT teams needed to turn large, messy asset export files into a report they could act on immediately — triaging what's end-of-life, what needs upgrading, and what's safe — without wading through raw spreadsheets.",
+      solution:
+        "Built a multi-file ingestion pipeline that categorizes assets into four states (EOL/EOS, Needs Upgrade, No Upgrade Needed, Sleeping Machine) with progressive, scroll-triggered rendering to handle large asset counts without blocking the UI. Implemented a three-level checkbox selection system using a Set as the single source of truth across nested rows, sections, and categories, plus per-category PDF and CSV export with backward-compatible field mapping across old and new API response formats. Authored the full user-facing documentation alongside the build.",
+      impact:
+        "Shipped as an active feature on the Carter Bank Intelligence platform, giving bank IT/security teams a self-serve triage tool instead of manual spreadsheet review.",
     },
   ],
 
