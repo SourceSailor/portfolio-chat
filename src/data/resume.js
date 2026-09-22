@@ -94,7 +94,7 @@ export const resume = {
       role: "Sole Frontend Engineer",
       timeline: "2025 – Present",
       description:
-        "Built a security compliance reporting tool for enterprise banking clients on the Carter Bank Intelligence platform. Ingests three raw export formats — EOL/EOS scans, Active Directory user exports, and computer logon summaries — and generates categorized, actionable vulnerability reports.",
+        "Built a security compliance reporting tool for enterprise banking clients. Ingests three raw export formats — EOL/EOS scans, Active Directory user exports, and computer logon summaries — and generates categorized, actionable vulnerability reports.",
       tools: [
         "React",
         "Vite",
@@ -105,9 +105,9 @@ export const resume = {
       challenge:
         "Bank IT teams needed to turn large, messy asset export files into a report they could act on immediately — triaging what's end-of-life, what needs upgrading, and what's safe — without wading through raw spreadsheets.",
       solution:
-        "Built a multi-file ingestion pipeline that categorizes assets into four states (EOL/EOS, Needs Upgrade, No Upgrade Needed, Sleeping Machine) with progressive, scroll-triggered rendering to handle large asset counts without blocking the UI. Implemented a three-level checkbox selection system using a Set as the single source of truth across nested rows, sections, and categories, plus per-category PDF and CSV export with backward-compatible field mapping across old and new API response formats. Authored the full user-facing documentation alongside the build.",
+        "Built a multi-file ingestion pipeline that categorizes assets into four states (EOL/EOS, Needs Upgrade, No Upgrade Needed, Sleeping Machine) with progressive, scroll-triggered rendering to handle large asset counts without blocking the UI. Implemented a three-level checkbox selection system using a Set as the single source of truth across nested rows, sections, and categories, plus per-category PDF and CSV exports.",
       impact:
-        "Shipped as an active feature on the Carter Bank Intelligence platform, giving bank IT/security teams a self-serve triage tool instead of manual spreadsheet review.",
+        "Reduced IT's EOL/EOS triage process by 90% by consolidating raw export files into one centralized, actionable report.",
     },
   ],
 
