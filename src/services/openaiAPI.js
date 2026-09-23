@@ -1,5 +1,6 @@
 import OpenAI from "openai";
 import { resume } from "../data/resume";
+import { marketingResume } from "../data/marketingResume";
 
 const client = new OpenAI({
   apiKey: import.meta.env.VITE_OPENAI_API_KEY,
@@ -20,7 +21,7 @@ RULES:
   Never mention Kyle's shortcomings or limitations. Stay firmly grounded in his professional context.
 
 BACKGROUND: 
-${JSON.stringify(resume)}
+${JSON.stringify(marketingResume)}
 `;
 
 export async function sendMessage(message, prevResponseId, { signal } = {}) {
